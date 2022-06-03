@@ -1,32 +1,54 @@
 
-<h1>This is routing based project</h1>
-<h3>Here is Simple Routing</h3>
-<div class="menu">
-  <ul>
-    <li><a routerLink="">Home</a></li>
-    <li><a routerLink="About">About Us</a></li>
-    <!-- <li><a routerLink="User"> User</a></li> -->
-    <li><a routerLink="Register">New User</a></li>
-  </ul>
-</div>
+<app-header></app-header><br/><br/>
+<h4 style="color:blue">Here Display the data uith the help of API</h4>
+<table border="1px solid" class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+    </tr>
+    <tr *ngFor="let user of datauser">
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.age}}</td>
+    </tr>
+</table>
+<h4 style="color:blue">Registration Form</h4>
+    <br/>
 
-<br/><br/>
-<h3>Here is Dimanic Routing</h3>
-<div class="menu">
-  <ul>
-    <li><a routerLink="User/30">anil</a></li>
-    <li><a routerLink="User/10">abhay</a></li>
-    <li><a routerLink="User/20">suresh</a></li>
-  </ul>
-</div>
+    <form #reguser="ngForm" (ngSubmit)="getuserdata(reguser.value)">
+        <input type="text" name="name" ngModel placeholder="Enter Your Name.."/><br/>
+        <br/>
+        <input type="email" name="email" ngModel placeholder="Enter Your Email.."/><br/><br/>
+        <input type="password" name="pass" ngModel placeholder="Enter Your Password.."/><br/><br/>
+        <input type="text" name="age" ngModel placeholder="Enter Your Age.."/><br/><br/>
+        <button>Submit</button>
+    </form>
 
 
+<h4 style="color:blue">Here We Show the user address data</h4>
+<table border="1px solid">
+    <tr>
+        <th>ID</th>
+        <th>Street</th>
+        <th>City</th>
+    </tr>
+    <tr *ngFor="let address of dataaddreess">
+        <td>{{address.id}}</td>
+        <td>{{address.Street}}</td>
+        <td>{{address.city}}</td>
+    </tr>
+</table>
 
-
-
-
+<h4 style="color:blue">Add New City</h4>
+<form #address="ngForm" (ngSubmit)="getaddress(address.value)">
+    <input type="text" name="Street" ngModel placeholder="Enter Street Name.."/><br/>
+    <br/>
+    <input type="email" name="city" ngModel placeholder="Enter Your city.."/><br/><br/>
+    <button>Submit</button>
+</form>
 
 <router-outlet></router-outlet>
-<!-- <a href="">Home</a><br/>
-<a href="">About Us</a><br/>
-<a href="">User</a><br/> -->
+<app-footer></app-footer>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { UserdataService } from '../services/userdata.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  Huser:any;
+  constructor(private userdata:UserdataService) { 
+    console.warn("HomeData",userdata.users());
+    this.Huser=userdata.users();
+  }
 
   ngOnInit(): void {
   }
