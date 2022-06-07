@@ -26,8 +26,7 @@ export class AppComponent {
     //here we write the code for show user data by the api
     this.users.userdata().subscribe((data)=>{
       //console.warn("data",data);
-      
-      this.datauser=data
+      this.datauser=data;
     })
     //here we write the code for show address data by the api
     this.addressdata.showAddress().subscribe((data)=>{
